@@ -1,4 +1,4 @@
-TOOL_DIR="/Users/hirano.shigetoshi/.zplugin/plugins/cm-hirano-shigetoshi---command-history"
+TOOL_DIR=${TOOL_DIR-${0:A:h}}
 HISTORY_ALL_FILE="$HOME/.zsh/history_all.txt"
 
 function fzf-history-widget() {
