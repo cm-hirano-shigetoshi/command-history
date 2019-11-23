@@ -30,6 +30,7 @@ bindkey "^r" fzf-history-widget
 function preexec() {
   local history_dir_file
   history_dir_file="${HOME}/.zsh/histories$(builtin pwd)/history"
+  mkdir -p $(dirname ${history_dir_file})
   echo "$1" >> ${history_dir_file}
   echo "$1$(builtin pwd)" >> ${HISTORY_ALL_FILE}
 }
