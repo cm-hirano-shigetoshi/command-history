@@ -1,5 +1,6 @@
 base_task:
   input: tac {arg1} | grep -v '^\s*$' | awk '!l[$0]++'
+  query: '{arg3} '
   opts:
     - no-sort
     - preview-window='hidden:up:30%:wrap'
