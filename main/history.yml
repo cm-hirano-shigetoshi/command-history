@@ -3,14 +3,14 @@ base_task:
   opts:
     - no-sort
     - preview-window='hidden:up:30%:wrap'
-  stdout:
+  output:
     enter:
         - pipe: awk 'BEGIN{print "execute"} {print $0}'
     ctrl-a:
         - pipe: awk 'BEGIN{print "start"} {print $0}'
     ctrl-e:
         - pipe: awk 'BEGIN{print "end"} {print $0}'
-continue:
+switch_task:
   ctrl-r:
     input: tac {arg2} | bash {ymldir}/history_all.sh
     opts:
