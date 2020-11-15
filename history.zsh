@@ -4,7 +4,7 @@ HISTORY_ALL_FILE="$HOME/.zsh/history_all.txt"
 function fzf-history-widget() {
   local history_dir_file result
   history_dir_file="${HOME}/.zsh/histories$(builtin pwd)/history"
-  result=$(fzfyml run ${TOOL_DIR}/main/history.yml "${history_dir_file}" "${HISTORY_ALL_FILE}" "${BUFFER}")
+  result=$(fzfyml3 run ${TOOL_DIR}/main/history.yml "${history_dir_file}" "${HISTORY_ALL_FILE}" "${BUFFER}")
   if [[ -n "${result}" ]]; then
     local type
     type=$(head -1 <<< ${result})
