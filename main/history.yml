@@ -13,8 +13,7 @@ base_task:
         - pipe: awk 'BEGIN{print "end"} {print $0}'
 task_switch:
   ctrl-r:
-    task:
-      source: tac {{arg2}} | bash {{yml_dir}}/history_all.sh
-      options:
-          - preview-window='up:30%:wrap'
+    source: tac {{arg2}} | bash {{yml_dir}}/history_all.sh
+    options:
+        - preview-window='up:30%:wrap'
 

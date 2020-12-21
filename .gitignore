@@ -1,2 +1,4 @@
 *.swp
 *.zsh.zwc
+
+._zplugin/
