@@ -1,9 +1,12 @@
 base_task:
   source: tac {{arg1}} | grep -v '^\s*$' | awk '!l[$0]++'
+  binds:
+    ctrl-r:
+      - reload[tac {{arg2}} | bash {{yml_dir}}/history_all.sh]
   options:
-    - query='{{arg3}} '
+    - 'query={{arg3}} '
     - no-sort
-    - preview-window='hidden:up:30%:wrap'
+    - preview-window=hidden:up:30%:wrap
   post_operations:
     enter:
         - pipe: awk 'BEGIN{print "execute"} {print $0}'
@@ -11,9 +14,4 @@ base_task:
         - pipe: awk 'BEGIN{print "start"} {print $0}'
     ctrl-e:
         - pipe: awk 'BEGIN{print "end"} {print $0}'
-task_switch:
-  ctrl-r:
-    source: tac {{arg2}} | bash {{yml_dir}}/history_all.sh
-    options:
-        - preview-window='up:30%:wrap'
 
