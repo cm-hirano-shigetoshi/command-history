@@ -3,10 +3,12 @@ base_task:
   binds:
     ctrl-r:
       - reload[tac {{arg2}} | bash {{yml_dir}}/history_all.sh]
+  preview:
+    command: echo {}
+    window: up:30%:wrap
   options:
     - 'query={{arg3}} '
     - no-sort
-    - preview-window=hidden:up:30%:wrap
   post_operations:
     enter:
         - pipe: awk 'BEGIN{print "execute"} {print $0}'
